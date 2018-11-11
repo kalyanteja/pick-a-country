@@ -1,0 +1,16 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="center-on-page">
+{% for d in data %}
+ {% set my_string = d['flag'] %}
+<h1>
+  <img src="{{ my_string }}" class="svg" fill="white" height="100" vertical-align="middle" width="100">
+ </h1> 
+ <h1>{{ d['name'] }}</h1>
+ <h4>Capital: <h1>{{ d['capital'] }}</h1>
+ <h4>Region: <h1>{{ d['region'] }}</h1>
+ <h4>Population:<h4><h1>{{ d['population'] }}</h1>
+ <h4>Time Zone:<h4> <h1>{{ d['timezones'][0] }}</h1>
+ <h4>Language:<h4> <h1>{{ d['languages'][0]['name'] }}</h1>
+ <h4>Currency:<h4> <h1>{{ d['currencies'][0]['code'], d['currencies'][0]['name'], d['currencies'][0]['symbol']}}</h1>
+{% endfor %}
